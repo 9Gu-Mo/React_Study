@@ -1,0 +1,6 @@
+@use '@/styles/styles.scss' as *;
+// @use '@/styles/base/reset.scss';
+
+.test {
+  @include flex($justify: center, $align: center)
+}

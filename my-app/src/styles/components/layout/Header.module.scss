@@ -1,0 +1,5 @@
+@import '@/styles/abstracts/_mixin.scss';
+
+.header {
+  @include flex($justify: center, $align: center)
+}
