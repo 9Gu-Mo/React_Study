@@ -1,0 +1,97 @@
+// color set
+// 실제 사용은 하단의 color map
+// blue color
+$blue-900: #1d2d49;
+$blue-800: #25385b;
+$blue-700: #2c436d;
+$blue-600: #334e7f;
+$blue-500: #3b5a93;
+$blue-400: #496fb6;
+$blue-300: #6d8cc5;
+$blue-200: #92a9d3;
+$blue-100: #b6c6e2;
+$blue-50: #dae2f1;
+
+// red color
+$red-900: #f11104;
+$red-800: #fb2114;
+$red-700: #fb392d;
+$red-600: #fb5146;
+$red-500: #fc685e;
+$red-400: #fc8078;
+$red-300: #fd9791;
+$red-200: #fdaeaa;
+$red-100: #fec6c3;
+$red-50: #fededc;
+
+// gray scale
+$gray-900: #212529;
+$gray-800: #343a40;
+$gray-700: #495057;
+$gray-600: #868e96;
+$gray-500: #adb5bd;
+$gray-400: #ced4da;
+$gray-300: #dee2e6;
+$gray-200: #e9ecef;
+$gray-100: #f1f3f5;
+$gray-50: #f6f7f8;
+$gray-0: #fff;
+
+// color map
+$color-set: (
+  main: $blue-500,
+  sub: $red-500,
+  red: $red-500,
+  text: $gray-900,
+  white: $gray-0,
+  main-900: $blue-900,
+  main-800: $blue-800,
+  main-700: $blue-700,
+  main-600: $blue-600,
+  main-500: $blue-500,
+  main-400: $blue-400,
+  main-300: $blue-300,
+  main-200: $blue-200,
+  main-100: $blue-100,
+  main-50: $blue-50,
+  red-900: $red-900,
+  red-800: $red-800,
+  red-700: $red-700,
+  red-600: $red-600,
+  red-500: $red-500,
+  red-400: $red-400,
+  red-300: $red-300,
+  red-200: $red-200,
+  red-100: $red-100,
+  red-50: $red-50,
+  gray-900: $gray-900,
+  gray-800: $gray-800,
+  gray-700: $gray-700,
+  gray-600: $gray-600,
+  gray-500: $gray-500,
+  gray-400: $gray-400,
+  gray-300: $gray-300,
+  gray-200: $gray-200,
+  gray-100: $gray-100,
+  gray-50: $gray-50,
+  gray-0: $gray-0,
+);
+
+$path-set: (
+  icon: "../../images/icon/",
+  img: "../../images/img/",
+  logo: "../../images/logo/",
+);
+
+// 높이, 넓이
+$hd-height: 50px;
+$gnb-width: 260px;
+$logo-height: 170px;
+
+// button & badge
+// btn color
+$btn-color: (
+  // basic: gray, // basic은 예외로 작성
+  red: red,
+  main: main
+);

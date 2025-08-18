@@ -14,3 +14,13 @@
   align-items: $align;
   gap: $gap;
 }
+
+@mixin ellipse($line-cnt, $line-height) {
+  overflow: hidden;
+  display: -webkit-box;
+  line-height: $line-height;
+  -webkit-line-clamp: $line-cnt;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}

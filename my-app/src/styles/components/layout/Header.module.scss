@@ -1,5 +1,7 @@
-@import '@/styles/abstracts/_mixin.scss';
+@use "@/styles/abstracts/util" as *;
 
 .header {
-  @include flex($justify: center, $align: center)
+  @include flex($justify: center, $align: center);
+
+  color: color(main);
 }

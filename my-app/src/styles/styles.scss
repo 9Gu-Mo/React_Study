@@ -1,2 +1,2 @@
-@forward "abstracts/mixin";
-@forward "base/reset";
+@use "base/reset";
+@use "main.scss";

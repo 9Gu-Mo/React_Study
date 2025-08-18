@@ -1,6 +1,7 @@
-@use '@/styles/styles.scss' as *;
-// @use '@/styles/base/reset.scss';
+@use "abstracts/util" as *;
 
 .test {
-  @include flex($justify: center, $align: center)
+  @include flex($justify: center, $align: center);
+
+  color: color(main);
 }
