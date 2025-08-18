@@ -3,7 +3,7 @@
   $wrap: nowrap,
   $justify: flex-start,
   $align: stretch,
-  $gap: 0,
+  $gap: 0
 ) {
   @content;
 
@@ -23,4 +23,10 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   word-wrap: break-word;
+}
+
+@mixin position($t: auto, $l: auto, $p: absolute) {
+  position: $p;
+  top: $t;
+  left: $l;
 }

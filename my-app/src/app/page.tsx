@@ -1,12 +1,16 @@
 // component
+import ContentList from "@/components/ContentList";
 import Header from "@/components/layout/Header";
-import Test from "@/components/Test";
+import TopContent from "@/components/TopContent";
 
 export default function Home() {
   return (
     <>
-      <Header title="header" />
-      <Test />
+      <Header />
+      <div className="wrap">
+        <TopContent />
+        <ContentList />
+      </div>
     </>
   );
 }

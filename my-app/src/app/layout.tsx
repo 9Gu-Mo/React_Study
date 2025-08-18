@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/styles.scss";
+import "@/styles/main.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

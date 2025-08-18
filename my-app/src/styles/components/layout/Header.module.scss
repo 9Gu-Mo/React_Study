@@ -1,7 +1,0 @@
-@use "@/styles/abstracts/util" as *;
-
-.header {
-  @include flex($justify: center, $align: center);
-
-  color: color(main);
-}

@@ -1,18 +1,19 @@
 // component
 import Nav from "./Nav";
-import { HeaderProps } from "./Header.types";
+
+// interface
+import { HeaderProps } from "@/types/common.types";
 
 // style
-import style from '@/styles/components/layout/Header.module.scss';
+import "@/styles/components/layout/header.scss";
 
 export default function Header(props: HeaderProps) {
   return (
     <>
-      <header className={style.header}>
-        {props.title && <h1>{props.title}</h1>}
+      <header className="header">
         <Nav />
-        <p className={style.el}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis tenetur nobis unde voluptate quidem, eius libero! Quia soluta voluptates in nemo similique cupiditate amet maiores, ipsam quibusdam, quis pariatur provident.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis tenetur nobis unde voluptate quidem, eius libero! Quia soluta voluptates in nemo similique cupiditate amet maiores, ipsam quibusdam, quis pariatur provident.</p>
+        {props.title && <h1>{props.title}</h1>}
       </header>
     </>
-  )
+  );
 }

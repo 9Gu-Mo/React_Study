@@ -1,0 +1,11 @@
+@use "@/styles/abstracts/util" as *;
+
+.header {
+  @include position($t: 10px, $l: 10px, $p: fixed);
+
+  z-index: 15;
+}
+
+.navList {
+  background-color: color(white);
+}

@@ -1,7 +1,16 @@
 @use "abstracts/util" as *;
 
-.test {
-  @include flex($justify: center, $align: center);
+.wrap {
+  img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
 
-  color: color(main);
+  .content-item {
+    @include flex($justify: center, $align: center);
+
+    width: 100%;
+    height: 600px;
+  }
 }
