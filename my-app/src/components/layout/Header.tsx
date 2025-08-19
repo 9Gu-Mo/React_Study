@@ -1,3 +1,5 @@
+"use client";
+
 // component
 import Nav from "./Nav";
 
@@ -5,13 +7,13 @@ import Nav from "./Nav";
 import { HeaderProps } from "@/types/common.types";
 
 // style
-import "@/styles/components/layout/header.scss";
+import style from "@/styles/components/layout/Header.module.scss";
 
 export default function Header(props: HeaderProps) {
   return (
     <>
-      <header className="header">
-        <Nav />
+      <header ref={props.ref} className={style.header}>
+        <Nav isActive={props.isActive} />
         {props.title && <h1>{props.title}</h1>}
       </header>
     </>

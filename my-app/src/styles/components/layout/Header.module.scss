@@ -1,0 +1,7 @@
+@use "@/styles/abstracts/util" as *;
+
+.header {
+  @include position($p: fixed);
+
+  z-index: 15;
+}

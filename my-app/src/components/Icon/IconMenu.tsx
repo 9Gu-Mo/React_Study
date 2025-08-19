@@ -13,7 +13,7 @@ export default function IconMenu(props: IconProps) {
       >
         <path
           d="M4 6H20M4 12H20M4 18H20"
-          stroke={props.color ? props.color : "#000000"}
+          stroke={props.color ? props.color : "#ffffff"}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

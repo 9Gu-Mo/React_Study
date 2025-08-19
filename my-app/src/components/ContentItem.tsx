@@ -4,9 +4,9 @@
 import { useEffect } from "react";
 
 // interface
-import { ContentProps } from "./Content.types";
+import { ContentProps } from "./content.types";
 
-// animation library
+// library
 import AOS from "aos";
 
 // styles

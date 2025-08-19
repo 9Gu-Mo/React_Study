@@ -4,20 +4,20 @@
 import ContentItem from "./ContentItem";
 
 // interface
-import { ContentProps } from "./Content.types";
+import { ContentProps } from "./content.types";
 
 // dummy data
 const contentList: ContentProps[] = [
   {
     class: "content-item",
-    children: <div>content1</div>,
     dataDuration: 1000,
+    children: <div>content1</div>,
   },
   {
     class: "content-item",
-    children: <div>content2</div>,
     dataName: "fade-left",
     dataDuration: 1000,
+    children: <div>content2</div>,
   },
   {
     class: "content-item",
@@ -25,8 +25,8 @@ const contentList: ContentProps[] = [
   },
   {
     class: "content-item",
-    children: <div>content4</div>,
     dataName: "fade-right",
+    children: <div>content4</div>,
   },
 ];
 
