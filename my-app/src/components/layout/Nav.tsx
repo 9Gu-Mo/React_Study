@@ -1,7 +1,7 @@
 "use client";
 
 // hook
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // component
 import Link from "next/link";
@@ -12,6 +12,7 @@ import { HeaderProps } from "@/types/common.types";
 
 // style
 import style from "@/styles/components/layout/Nav.module.scss";
+import IconClose from "../Icon/IconClose";
 
 // dummy data
 interface NavList {
@@ -35,26 +36,68 @@ const navList: NavList[] = [
 
 export default function Nav(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  // handle scroll lock
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (!html) return;
+
+    if (isOpen) {
+      html.classList.add("no-scroll");
+    } else {
+      html.classList.remove("no-scroll");
+    }
+  }, [isOpen]);
+
+  // toggle navigation menu
+  const handleMenuClick = () => {
+    setIsVisible(true);
+    setTimeout(() => {
+      setIsOpen(!isOpen);
+    }, 10);
+  };
+
+  // handle link click
+  const handleLinkClick = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 500);
+  };
+
+  const handleListClick = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 300);
   };
 
   return (
     <>
       <nav className={style.navBtn}>
-        <button type="button" onClick={handleClick}>
-          {props.isActive ? <IconMenu color="#000000" /> : <IconMenu />}
+        <button type="button" onClick={handleMenuClick}>
+          <IconMenu color={props.isActive && "#000000"} />
         </button>
       </nav>
-      {isOpen && (
-        <ul className={`${style.navList} ${isOpen && style.active}`}>
-          {navList.map((item, index) => (
-            <li key={index}>
-              <Link href={"#content" + index}>{item.name}</Link>
-            </li>
-          ))}
-        </ul>
+      {isVisible && (
+        <div
+          className={`${style.navList} ${isOpen && style.active}`}
+          onClick={handleListClick}
+        >
+          <ul>
+            {navList.map((item, index) => (
+              <li key={index}>
+                <Link onClick={handleLinkClick} href={"#content" + index}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <button className={style.navCloseBtn} type="button">
+            <IconClose color={props.isActive && "#000000"} />
+          </button>
+        </div>
       )}
     </>
   );

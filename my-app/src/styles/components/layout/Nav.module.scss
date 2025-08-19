@@ -5,5 +5,31 @@
 }
 
 .navList {
-  background-color: color(white);
+  @include flex($direction: column, $justify: center, $align: center);
+  @include position($t: 0, $l: 0, $p: fixed) {
+    bottom: 0;
+    right: 0;
+  }
+
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+
+  .navCloseBtn {
+    @include position($t: 10px, $l: auto) {
+      right: 10px;
+    }
+
+    font-size: 0;
+    color: color(white);
+
+    &:hover {
+      transition: all 1s ease-in-out;
+      transform: rotate(360deg);
+    }
+  }
 }

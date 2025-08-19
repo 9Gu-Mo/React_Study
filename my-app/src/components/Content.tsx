@@ -1,7 +1,7 @@
 "use client";
 
 // hook
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 // component
 import ContentList from "./ContentList";
@@ -33,7 +33,7 @@ export default function Content() {
   };
 
   // add scroll event listener
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {

@@ -7,6 +7,6 @@ export interface HeaderProps {
 
 // Icon types for the icon components
 export interface IconProps {
-  color?: string;
+  color?: string | boolean;
   size?: number;
 }

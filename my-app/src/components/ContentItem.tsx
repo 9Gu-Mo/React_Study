@@ -1,7 +1,7 @@
 "use client";
 
 // hook
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 // interface
 import { ContentProps } from "./content.types";
@@ -13,7 +13,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function ContentItem(props: ContentProps) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     AOS.init();
   }, []);
 

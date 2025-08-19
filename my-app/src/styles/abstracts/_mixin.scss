@@ -29,4 +29,5 @@
   position: $p;
   top: $t;
   left: $l;
+  @content;
 }

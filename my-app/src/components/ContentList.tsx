@@ -10,12 +10,12 @@ import { ContentProps } from "./content.types";
 const contentList: ContentProps[] = [
   {
     class: "content-item",
+    dataName: "fade-right",
     dataDuration: 1000,
     children: <div>content1</div>,
   },
   {
     class: "content-item",
-    dataName: "fade-left",
     dataDuration: 1000,
     children: <div>content2</div>,
   },

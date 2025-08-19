@@ -1,16 +1,20 @@
 @use "abstracts/util" as *;
 
-.wrap {
-  img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
+.content-top {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
 
+.wrap {
   .content-item {
     @include flex($justify: center, $align: center);
 
     width: 100%;
     height: 600px;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
