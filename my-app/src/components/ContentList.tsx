@@ -2,6 +2,8 @@
 
 // component
 import ContentItem from "./ContentItem";
+import Customer from "./Customer";
+import PostPage from "./PostPage";
 
 // interface
 import { ContentProps } from "./content.types";
@@ -21,12 +23,12 @@ const contentList: ContentProps[] = [
   },
   {
     class: "content-item",
-    children: <div>content3</div>,
+    children: <Customer />,
   },
   {
     class: "content-item",
     dataName: "fade-right",
-    children: <div>content4</div>,
+    children: <PostPage />,
   },
 ];
 
