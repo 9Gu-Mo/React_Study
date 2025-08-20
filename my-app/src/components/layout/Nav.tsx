@@ -76,7 +76,7 @@ export default function Nav(props: HeaderProps) {
     <>
       <nav className={style.navBtn}>
         <button type="button" onClick={handleMenuClick}>
-          <IconMenu color={props.isActive && "#000000"} />
+          <IconMenu color={props.isActive ? "#000000" : "#ffffff"} />
         </button>
       </nav>
       {isVisible && (
@@ -95,7 +95,7 @@ export default function Nav(props: HeaderProps) {
           </ul>
 
           <button className={style.navCloseBtn} type="button">
-            <IconClose color={props.isActive && "#000000"} />
+            <IconClose color={props.isActive ? "#000000" : "#ffffff"} />
           </button>
         </div>
       )}

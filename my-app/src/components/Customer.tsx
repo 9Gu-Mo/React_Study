@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Address {
@@ -17,6 +19,7 @@ interface Customer {
   address: Address;
   registration: string;
   gender: string;
+  profile: string;
 }
 
 export default function Customer() {
@@ -62,7 +65,10 @@ export default function Customer() {
             <span key={index}>{value}</span>
           ))}
           <span>{cus.registration}</span>
-          <span>{cus.gender}</span>
+          <span>{cus.gender === "male" ? "남" : "여"}</span>
+          <Link href="#">
+            <Image alt="ss" width={40} height={40} src={cus.profile} />
+          </Link>
         </div>
       ))}
     </>
