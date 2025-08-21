@@ -1,0 +1,17 @@
+@use "@/styles/abstracts/util" as *;
+
+.customer {
+  @include flex;
+
+  gap: 10px;
+
+  > a {
+    font-size: 0;
+  }
+
+  > div {
+    @include flex($direction: column);
+
+    gap: 5px;
+  }
+}

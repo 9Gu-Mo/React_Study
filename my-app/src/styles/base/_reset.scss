@@ -149,6 +149,11 @@ html {
   box-sizing: inherit;
 }
 
+html,
+body {
+  font-size: 10px;
+}
+
 /* 이미지 반응형 */
 img {
   max-width: 100%;
