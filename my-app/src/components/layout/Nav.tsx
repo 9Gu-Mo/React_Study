@@ -5,18 +5,24 @@ import { useEffect, useState } from "react";
 
 // component
 import Link from "next/link";
+import IconClose from "../Icon/IconClose";
 import IconMenu from "../Icon/IconMenu";
 
 // interface
 import { HeaderProps } from "@/types/common.types";
 
+// library
+import AOS from "aos";
+
 // style
 import style from "@/styles/components/layout/Nav.module.scss";
-import IconClose from "../Icon/IconClose";
+import "aos/dist/aos.css";
 
 // dummy data
 interface NavList {
   name: string;
+  dataName?: string;
+  dataDuration?: number;
 }
 
 const navList: NavList[] = [
@@ -38,7 +44,15 @@ export default function Nav(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // handle scroll lock
+  // page refresh scroll top
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
+
+  // scroll bar hidden class toggle
   useEffect(() => {
     const html = document.querySelector("html");
     if (!html) return;
@@ -48,9 +62,12 @@ export default function Nav(props: HeaderProps) {
     } else {
       html.classList.remove("no-scroll");
     }
+
+    // AOS library start
+    AOS.init();
   }, [isOpen]);
 
-  // toggle navigation menu
+  // toggle navigation menu open & close
   const handleMenuClick = () => {
     setIsVisible(true);
     setTimeout(() => {
@@ -58,13 +75,14 @@ export default function Nav(props: HeaderProps) {
     }, 10);
   };
 
-  // handle link click
+  // anchor link click event
   const handleLinkClick = () => {
     setTimeout(() => {
       setIsOpen(false);
     }, 500);
   };
 
+  // toggle navigation menu close
   const handleListClick = () => {
     setIsOpen(false);
     setTimeout(() => {
@@ -86,7 +104,11 @@ export default function Nav(props: HeaderProps) {
         >
           <ul>
             {navList.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                data-aos={item.dataName ? item.dataName : "fade-right"}
+                data-aos-duration={200 * (index + 1)}
+              >
                 <Link onClick={handleLinkClick} href={"#content" + index}>
                   {item.name}
                 </Link>

@@ -1,4 +1,4 @@
-@use "@/styles/abstracts/util" as *;
+@use "@/styles/abstracts/utill" as *;
 
 .navBtn {
   padding: 10px;
@@ -31,5 +31,10 @@
       transition: all 1s ease-in-out;
       transform: rotate(360deg);
     }
+  }
+
+  a {
+    font-size: 1.4rem;
+    color: color(white);
   }
 }
