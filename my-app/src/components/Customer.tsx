@@ -57,9 +57,6 @@ export default function Customer() {
     // const numberStr = property.replace(/[원$,]/g, "");
     const numberStr = property.replace(/,$/g, "");
 
-    console.log("numberStr :" + numberStr);
-    console.log("unit : " + unit);
-
     const priceStr = parseInt(numberStr);
     const price = priceStr.toLocaleString();
 

@@ -1,11 +1,15 @@
+// component
 import Image from "next/image";
+
+// environment variables
+import { CDN_BASE } from "../constants/env";
 
 export default function TopContent() {
   return (
     <>
       <Image
         className="content-top"
-        src="https://cdn.jsdelivr.net/gh/9Gu-Mo/React_Study@main/my-app/public/images/bg/bg.jpg"
+        src={`${CDN_BASE}/bg/bg.jpg`}
         width={1920}
         height={1280}
         alt=""
