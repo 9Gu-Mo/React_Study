@@ -1,6 +1,7 @@
 "use client";
 
 // hook
+import throttle from "lodash/throttle";
 import { useLayoutEffect, useRef, useState } from "react";
 
 // component
@@ -19,7 +20,7 @@ export default function Content() {
   const [isActive, setIsActive] = useState(false);
 
   // scroll event handler
-  const handleScroll = () => {
+  const handleScroll = throttle(() => {
     const lastScrollTop = window.scrollY;
     const contentTop = contentRef.current?.offsetTop;
 
@@ -30,7 +31,7 @@ export default function Content() {
         setIsActive(isActive);
       }
     }
-  };
+  }, 100);
 
   // add scroll event listener
   useLayoutEffect(() => {

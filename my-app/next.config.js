@@ -7,9 +7,6 @@ const nextConfig = {
     unoptimized: true,
     domains: ["cdn.jsdelivr.net"],
   },
-  // images: {
-  //   domains: ["cdn.jsdelivr.net"],
-  // },
 };
 
 module.exports = nextConfig;
