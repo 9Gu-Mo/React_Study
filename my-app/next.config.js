@@ -5,6 +5,7 @@ const nextConfig = {
   assetPrefix: "/React_Study/",
   images: {
     unoptimized: true,
+    domains: ["cdn.jsdelivr.net"],
   },
   // images: {
   //   domains: ["cdn.jsdelivr.net"],

@@ -15,8 +15,9 @@ import { HeaderProps } from "@/types/common.types";
 import AOS from "aos";
 
 // style
-import style from "@/styles/components/layout/Nav.module.scss";
+// import style from "@/styles/components/layout/Nav.module.scss";
 import "aos/dist/aos.css";
+import style from "../../styles/components/layout/Nav.module.scss";
 
 // dummy data
 interface NavList {

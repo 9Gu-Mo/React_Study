@@ -7,7 +7,8 @@ import Nav from "./Nav";
 import { HeaderProps } from "@/types/common.types";
 
 // style
-import style from "@/styles/components/layout/Header.module.scss";
+// import style from "@/styles/components/layout/Header.module.scss";
+import style from "../../styles/components/layout/Header.module.scss";
 
 export default function Header(props: HeaderProps) {
   return (

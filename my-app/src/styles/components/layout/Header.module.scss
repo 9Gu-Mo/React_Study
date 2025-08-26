@@ -1,4 +1,5 @@
-@use "@/styles/abstracts/utill" as *;
+// @use "@/styles/abstracts/utill" as *;
+@use "../../abstracts/utill" as *;
 
 .header {
   @include position($p: fixed);
