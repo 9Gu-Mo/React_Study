@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 // environment variables
-import { CDN_BASE } from "../constants/env";
+import { CDN_BASE } from "@/constants/env";
 
 export default function TopContent() {
   return (

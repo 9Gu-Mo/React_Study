@@ -8,8 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // style
-// import style from "@/styles/components/Customer.module.scss";
-import style from "../styles/components/Customer.module.scss";
+import style from "@/styles/components/Customer.module.scss";
 
 interface Address {
   street: string;

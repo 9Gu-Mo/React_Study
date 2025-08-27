@@ -4,9 +4,9 @@
 import { useEffect, useState } from "react";
 
 // component
+import IconClose from "@/components/Icon/IconClose";
+import IconMenu from "@/components/Icon/IconMenu";
 import Link from "next/link";
-import IconClose from "../Icon/IconClose";
-import IconMenu from "../Icon/IconMenu";
 
 // interface type
 import { HeaderProps } from "@/types/common.types";
@@ -15,9 +15,8 @@ import { HeaderProps } from "@/types/common.types";
 import AOS from "aos";
 
 // style
-// import style from "@/styles/components/layout/Nav.module.scss";
+import style from "@/styles/components/layout/Nav.module.scss";
 import "aos/dist/aos.css";
-import style from "../../styles/components/layout/Nav.module.scss";
 
 // dummy data
 interface NavList {
@@ -35,9 +34,6 @@ const navList: NavList[] = [
   },
   {
     name: "content3",
-  },
-  {
-    name: "content4",
   },
 ];
 

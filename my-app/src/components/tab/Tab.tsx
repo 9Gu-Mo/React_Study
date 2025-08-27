@@ -8,7 +8,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 // style
-import style from "../../styles/components/Tab.module.scss";
+// import style from "../../styles/components/Tab.module.scss";
+import style from "@/styles/components/Tab.module.scss";
 
 // interface type
 interface Customer {
