@@ -2,28 +2,24 @@
 
 // component
 import ContentItem from "./ContentItem";
-import Customer from "./Customer";
 import PostPage from "./PostPage";
+import Tab from "./tab/Tab";
 
-// interface
+// interface type
 import { ContentProps } from "./content.types";
 
 // dummy data
 const contentList: ContentProps[] = [
   {
     class: "content-item",
-    dataName: "fade-right",
+    dataName: "fade-up",
     dataDuration: 1000,
     children: <div>content1</div>,
   },
   {
     class: "content-item",
-    dataDuration: 1000,
-    children: <div>content2</div>,
-  },
-  {
-    class: "content-item",
-    children: <Customer />,
+    dataName: "fade-left",
+    children: <Tab />,
   },
   {
     class: "content-item",

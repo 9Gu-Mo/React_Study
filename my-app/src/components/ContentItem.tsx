@@ -3,7 +3,7 @@
 // hook
 import { useLayoutEffect } from "react";
 
-// interface
+// interface type
 import { ContentProps } from "./content.types";
 
 // library

@@ -10,10 +10,11 @@
   font-size: 1.4rem;
 
   .content-item {
-    @include flex($justify: center, $align: center);
+    // @include flex($justify: center, $align: center);
 
     width: 100%;
-    height: 600px;
+    padding: 100px 0;
+    // height: 600px;
 
     &:last-child {
       height: auto;

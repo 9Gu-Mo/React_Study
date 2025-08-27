@@ -1,0 +1,7 @@
+@use "../abstracts/utill" as *;
+
+.tabBtnItem {
+  &.active {
+    font-weight: bold;
+  }
+}

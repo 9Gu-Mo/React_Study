@@ -3,7 +3,7 @@
 // component
 import Nav from "./Nav";
 
-// interface
+// interface type
 import { HeaderProps } from "@/types/common.types";
 
 // style

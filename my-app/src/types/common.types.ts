@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 // Header types for the layout component
 export interface HeaderProps {
   title?: string;
@@ -9,4 +11,11 @@ export interface HeaderProps {
 export interface IconProps {
   color?: string;
   size?: number;
+}
+
+// TabItem types for the tab item component
+export interface TabProps {
+  id: string;
+  name: string;
+  content?: ReactNode;
 }

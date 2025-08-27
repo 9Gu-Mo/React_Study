@@ -8,7 +8,7 @@ import Link from "next/link";
 import IconClose from "../Icon/IconClose";
 import IconMenu from "../Icon/IconMenu";
 
-// interface
+// interface type
 import { HeaderProps } from "@/types/common.types";
 
 // library
