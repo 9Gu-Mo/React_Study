@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 // style
-// import style from "../../styles/components/Tab.module.scss";
 import style from "@/styles/components/Tab.module.scss";
 
 // interface type
@@ -19,12 +18,13 @@ interface Customer {
   address: Address;
   registration: string;
   gender: string;
-  profile: string;
+  profileImg: ProfileImg;
   tel: string;
   property: string;
   gitUrl: string;
 }
 
+// address object
 interface Address {
   coutry: string;
   postalCode: string;
@@ -34,6 +34,14 @@ interface Address {
   street: string;
   buildingNumber: string;
   detailAddress: string;
+}
+
+// profile img object
+interface ProfileImg {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
 }
 
 export default function Tab() {
@@ -120,10 +128,10 @@ export default function Tab() {
           .map((item) => (
             <div key={item.id} id={item.id}>
               <Image
-                alt="profile img"
-                width={40}
-                height={40}
-                src={item.profile}
+                alt={item.profileImg.alt}
+                width={item.profileImg.width}
+                height={item.profileImg.height}
+                src={item.profileImg.url}
               />
               <span>{item.age}</span>
               <span>{item.tel}</span>

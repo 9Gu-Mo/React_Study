@@ -6,7 +6,6 @@ import PostPage from "./PostPage";
 import Tab from "./tab/Tab";
 
 // environment variables
-import { CDN_BASE } from "@/constants/env";
 
 // interface type
 import Image from "next/image";
@@ -21,12 +20,7 @@ const contentList: ContentProps[] = [
     children: (
       <div>
         content1
-        <Image
-          alt="ss"
-          width={40}
-          height={40}
-          src={`${CDN_BASE}/no-image.png`}
-        />
+        <Image alt="ss" width={40} height={40} src={"./images/no-image.png"} />
       </div>
     ),
   },
