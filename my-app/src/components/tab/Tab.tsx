@@ -1,7 +1,14 @@
 "use client";
 
+// component
+import Image from "next/image";
+import Link from "next/link";
+
 // hook
 import { useEffect, useState } from "react";
+
+// style
+import style from "../../styles/components/Tab.module.scss";
 
 // interface type
 interface Customer {
@@ -14,6 +21,7 @@ interface Customer {
   profile: string;
   tel: string;
   property: string;
+  gitUrl: string;
 }
 
 interface Address {
@@ -26,10 +34,6 @@ interface Address {
   buildingNumber: string;
   detailAddress: string;
 }
-
-// style
-import Image from "next/image";
-import style from "../../styles/components/Tab.module.scss";
 
 export default function Tab() {
   // 호출한 api 렌더링 저장
@@ -55,7 +59,6 @@ export default function Tab() {
   // 클릭한 탭 id값 저장
   const tabClick = (id: string) => {
     setActive(id);
-    console.log(customer);
   };
 
   // customer api 호출
@@ -134,6 +137,7 @@ export default function Tab() {
                   <span key={index}>{addr}</span>
                 ))}
               </div>
+              <Link href={item.gitUrl}>{item.gitUrl}</Link>
             </div>
           ))}
       </div>
