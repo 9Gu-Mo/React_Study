@@ -155,9 +155,11 @@ export default function Tab() {
                     <span key={index}>{addr}</span>
                   ))}
                 </div>
-                <Link target="_blink" href={item.gitUrl}>
-                  {item.gitUrl}
-                </Link>
+                <span>
+                  <Link target="_blink" href={item.gitUrl}>
+                    {item.gitUrl}
+                  </Link>
+                </span>
               </div>
             </div>
           ))}
