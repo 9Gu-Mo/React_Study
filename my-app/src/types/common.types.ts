@@ -10,3 +10,13 @@ export interface IconProps {
   color?: string;
   size?: number;
 }
+
+// Content & Nav types
+export interface ContentProps {
+  id: string;
+  type: string;
+  class?: string;
+  aosDataName?: string;
+  aosDataDuration?: number;
+  name?: string;
+}

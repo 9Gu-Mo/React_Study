@@ -15,31 +15,14 @@ import { HeaderProps } from "@/types/common.types";
 import AOS from "aos";
 
 // style
+import { useContent } from "@/contexts/ContentContext";
 import style from "@/styles/components/layout/Nav.module.scss";
 import "aos/dist/aos.css";
-
-// dummy data
-interface NavList {
-  name: string;
-  dataName?: string;
-  dataDuration?: number;
-}
-
-const navList: NavList[] = [
-  {
-    name: "content1",
-  },
-  {
-    name: "content2",
-  },
-  {
-    name: "content3",
-  },
-];
 
 export default function Nav(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const content = useContent() || [];
 
   // page refresh scroll top
   useEffect(() => {
@@ -100,13 +83,13 @@ export default function Nav(props: HeaderProps) {
           onClick={handleListClick}
         >
           <ul>
-            {navList.map((item, index) => (
+            {content.map((item, index) => (
               <li
                 key={index}
-                data-aos={item.dataName ? item.dataName : "fade-right"}
+                data-aos={item.aosDataName ? item.aosDataName : "fade-right"}
                 data-aos-duration={200 * (index + 1)}
               >
-                <Link onClick={handleLinkClick} href={"#content" + index}>
+                <Link onClick={handleLinkClick} href={`#${item.id}`}>
                   {item.name}
                 </Link>
               </li>

@@ -1,48 +1,38 @@
 "use client";
 
+// hook
+import { useContent } from "@/contexts/ContentContext";
+
 // component
-import ContentItem from "./ContentItem";
 import PostPage from "./PostPage";
 import Tab from "./tab/Tab";
 
-// environment variables
-
-// interface type
-import Image from "next/image";
-import { ContentProps } from "./content.types";
-
-// dummy data
-const contentList: ContentProps[] = [
-  {
-    class: "content-item",
-    dataName: "fade-up",
-    dataDuration: 1000,
-    children: (
-      <div>
-        content1
-        <Image alt="ss" width={40} height={40} src={"./images/no-image.png"} />
-      </div>
-    ),
-  },
-  {
-    class: "content-item",
-    children: <Tab />,
-  },
-  {
-    class: "content-item",
-    dataName: "fade-right",
-    children: <PostPage />,
-  },
-];
-
 export default function ContentList() {
+  const content = useContent() || [];
+
   return (
     <>
-      {contentList.map((item, index) => (
-        <ContentItem {...item} key={index} id={"content" + index}>
-          {item.children}
-        </ContentItem>
-      ))}
+      {content.map((item) => {
+        return (
+          <div
+            key={item.id}
+            id={item.id}
+            data-aos={item.aosDataName ? item.aosDataName : "fade-down"}
+            data-aos-duration={
+              item.aosDataDuration ? item.aosDataDuration : 1000
+            }
+            className="content-item"
+          >
+            {item.type === "tab" ? (
+              <Tab />
+            ) : item.type === "slide" ? (
+              <PostPage />
+            ) : (
+              <div>데이터 호출 실패</div>
+            )}
+          </div>
+        );
+      })}
     </>
   );
 }
