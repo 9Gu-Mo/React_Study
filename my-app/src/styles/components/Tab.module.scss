@@ -5,3 +5,11 @@
     font-weight: bold;
   }
 }
+
+.detail {
+  @include flex($direction: column);
+}
+
+.address {
+  @include flex($gap: 5px, $wrap: wrap);
+}

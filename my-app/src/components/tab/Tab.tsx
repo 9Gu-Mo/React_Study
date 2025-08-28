@@ -22,6 +22,7 @@ interface Customer {
   tel: string;
   property: string;
   gitUrl: string;
+  email: string;
 }
 
 // address object
@@ -133,20 +134,31 @@ export default function Tab() {
                 height={item.profileImg.height}
                 src={item.profileImg.url}
               />
-              <span>{item.age}</span>
-              <span>{item.tel}</span>
-              <span>
-                {item.registration.replace(/^(\d{6})-(\d{7})$/, "$1-*******")}
-              </span>
-              <span>{item.gender}</span>
-              <span>{item.tel}</span>
-              <div>
-                {/* object type 데이터 반복문 */}
-                {Object.entries(item.address).map(([index, addr]) => (
-                  <span key={index}>{addr}</span>
-                ))}
+              <div className={style.detail}>
+                <span>{item.age}</span>
+                <span>
+                  <a href={`tel:${item.tel}`}>{`tel : ${item.tel}`}</a>
+                </span>
+                <span>
+                  <a href={`sms:${item.tel}`}>{`sms : ${item.tel}`}</a>
+                </span>
+                <span>
+                  <a href={`mailto:${item.email}`}>{item.email}</a>
+                </span>
+                <span>
+                  {item.registration.replace(/^(\d{6})-(\d{7})$/, "$1-*******")}
+                </span>
+                <span>{item.gender}</span>
+                <div className={style.address}>
+                  {/* object type 데이터 반복문 */}
+                  {Object.entries(item.address).map(([index, addr]) => (
+                    <span key={index}>{addr}</span>
+                  ))}
+                </div>
+                <Link target="_blink" href={item.gitUrl}>
+                  {item.gitUrl}
+                </Link>
               </div>
-              <Link href={item.gitUrl}>{item.gitUrl}</Link>
             </div>
           ))}
       </div>
