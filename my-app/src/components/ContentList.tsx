@@ -4,7 +4,7 @@
 import { useContent } from "@/contexts/ContentContext";
 
 // component
-import PostPage from "./PostPage";
+import KakaoMap from "./KakaoMap";
 import Tab from "./tab/Tab";
 
 export default function ContentList() {
@@ -26,7 +26,7 @@ export default function ContentList() {
             {item.type === "tab" ? (
               <Tab />
             ) : item.type === "slide" ? (
-              <PostPage />
+              <KakaoMap />
             ) : (
               <div>데이터 호출 실패</div>
             )}

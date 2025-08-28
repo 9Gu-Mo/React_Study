@@ -22,6 +22,7 @@
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.33.0",
     "@types/aos": "^3.0.7",
+    "@types/kakaomaps": "^1.1.7",
     "@types/lodash": "^4.17.20",
     "@types/node": "^20",
     "@types/react": "^19",
