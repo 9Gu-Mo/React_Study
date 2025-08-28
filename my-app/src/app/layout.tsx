@@ -18,8 +18,8 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <Script
+          src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=19371b70b65b8c001818d1dd5184e68a&autoload=false`}
           strategy="beforeInteractive"
-          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=19371b70b65b8c001818d1dd5184e68a&autoload=false`}
         />
         {children}
       </body>
