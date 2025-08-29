@@ -90,7 +90,7 @@ export default function Nav(props: HeaderProps) {
                 data-aos-duration={200 * (index + 1)}
               >
                 <Link onClick={handleLinkClick} href={`#${item.id}`}>
-                  {item.name}
+                  {item.type}
                 </Link>
               </li>
             ))}

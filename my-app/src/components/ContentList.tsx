@@ -4,7 +4,8 @@
 import { useContent } from "@/contexts/ContentContext";
 
 // component
-import Tab from "./tab/Tab";
+import Intro from "./Intro";
+import Tab from "./Tab";
 
 export default function ContentList() {
   const content = useContent() || [];
@@ -24,8 +25,8 @@ export default function ContentList() {
           >
             {item.type === "tab" ? (
               <Tab />
-            ) : item.type === "attachment" ? (
-              <div>첨부파일</div>
+            ) : item.type === "intro" ? (
+              <Intro />
             ) : (
               <div>데이터 호출 실패</div>
             )}

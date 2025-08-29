@@ -1,0 +1,24 @@
+@use "@/styles/abstracts/utill" as *;
+
+.attach {
+  @include flex($gap: 10px);
+
+  a {
+    padding-left: 20px;
+    background-size: 16px;
+    background-position: center left;
+    background-repeat: no-repeat;
+
+    &.txt {
+      background-image: url("../../../public/images/icon/ico_txt.png");
+    }
+
+    &.pdf {
+      background-image: url("../../../public/images/icon/ico_pdf.png");
+    }
+
+    &.etc {
+      background-image: url("../../../public/images/icon/ico_etc.png");
+    }
+  }
+}
