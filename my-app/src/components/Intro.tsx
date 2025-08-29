@@ -17,32 +17,32 @@ const attachList: Attach[] = [
   {
     id: "id1",
     name: "test",
-    fileUrl: `./files/test.txt`,
+    fileUrl: `/files/test.txt`,
   },
   {
     id: "id2",
     name: "agree",
-    fileUrl: `./files/agree.pdf`,
+    fileUrl: `/files/agree.pdf`,
   },
   {
     id: "id3",
     name: "12",
-    fileUrl: `./files/12.jpg`,
+    fileUrl: `/files/12.jpg`,
   },
   {
     id: "id4",
     name: "avast",
-    fileUrl: `./files/avast.exe`,
+    fileUrl: `/files/avast.exe`,
   },
   {
     id: "id5",
     name: "rad",
-    fileUrl: `./files/rad.xlsx`,
+    fileUrl: `/files/rad.xlsx`,
   },
   {
     id: "id6",
     name: "tvut",
-    fileUrl: `./files/tvut.docx`,
+    fileUrl: `/files/tvut.docx`,
   },
 ];
 
