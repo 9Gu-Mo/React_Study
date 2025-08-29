@@ -72,8 +72,7 @@ export default function Intro() {
                   : style.etc
               }
             >
-              {item.name + "."}
-              {reducer}
+              {`${item.name}.${reducer}`}
             </Link>
           );
         })}
