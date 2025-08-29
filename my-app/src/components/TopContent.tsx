@@ -9,7 +9,7 @@ export default function TopContent() {
     <>
       <Image
         className="content-top"
-        src={`${CDN_BASE}/bg/bg.jpg`}
+        src={`${CDN_BASE}/images/bg/bg.jpg`}
         width={1920}
         height={1280}
         alt=""
