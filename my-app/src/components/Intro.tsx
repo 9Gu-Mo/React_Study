@@ -3,9 +3,6 @@
 // component
 import Link from "next/link";
 
-// environment variables
-import { CDN_BASE } from "@/constants/env";
-
 // style
 import style from "@/styles/components/intro.module.scss";
 
@@ -19,18 +16,33 @@ interface Attach {
 const attachList: Attach[] = [
   {
     id: "id1",
-    name: "test.tsx",
-    fileUrl: `${CDN_BASE}/files/test.txt`,
+    name: "test",
+    fileUrl: `./files/test.txt`,
   },
   {
     id: "id2",
-    name: "agree.pdf",
-    fileUrl: `${CDN_BASE}/files/agree.pdf`,
+    name: "agree",
+    fileUrl: `./files/agree.pdf`,
   },
   {
     id: "id3",
-    name: "12.jpg",
-    fileUrl: `${CDN_BASE}/files/12.jpg`,
+    name: "12",
+    fileUrl: `./files/12.jpg`,
+  },
+  {
+    id: "id4",
+    name: "avast",
+    fileUrl: `./files/avast.exe`,
+  },
+  {
+    id: "id5",
+    name: "rad",
+    fileUrl: `./files/rad.xlsx`,
+  },
+  {
+    id: "id6",
+    name: "tvut",
+    fileUrl: `./files/tvut.docx`,
   },
 ];
 
@@ -45,16 +57,23 @@ export default function Intro() {
             <Link
               href={item.fileUrl}
               key={item.id}
+              download
               className={
                 reducer === "txt"
                   ? style.txt
                   : reducer === "pdf"
                   ? style.pdf
+                  : reducer === "xlsx" || reducer === "xls"
+                  ? style.xls
+                  : reducer === "docx" || reducer === "doc"
+                  ? style.doc
+                  : reducer === "ppt"
+                  ? style.ppt
                   : style.etc
               }
-              download
             >
-              {item.name}
+              {item.name + "."}
+              {reducer}
             </Link>
           );
         })}
