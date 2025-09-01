@@ -39,8 +39,8 @@
   }
 
   &-inner {
-    position: relative;
     display: inline-block;
+    position: relative;
 
     input {
       border: 1px solid color(black);
@@ -51,11 +51,10 @@
   }
 
   &-clear {
-    @include position(50%, auto) {
+    @include position(9px, auto) {
       right: 5px;
     }
 
-    transform: translateY(-50%);
     font-size: 0;
   }
 

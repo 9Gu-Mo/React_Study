@@ -40,4 +40,5 @@ export interface FormProps {
   children?: ReactNode;
   onChange?: React.ChangeEvent<HTMLInputElement>;
   required?: boolean;
+  ref?: HTMLInputElement;
 }
