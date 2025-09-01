@@ -34,20 +34,6 @@ export default function Input(props: FormProps) {
 
   // 비밀번호 암호화 노출, 비노출
   const onPwToggle = () => {
-    // const inp = inpRef.current;
-
-    // if (inp) {
-    //   if (inp.type == "password") {
-    //     inp.type = "text";
-
-    //     setIsVisible(true);
-    //   } else {
-    //     inp.type = "password";
-
-    //     setIsVisible(false);
-    //   }
-    // }
-
     setIsVisible((prev) => !prev);
   };
 
