@@ -4,6 +4,7 @@
 import { useContent } from "@/contexts/ContentContext";
 
 // component
+import InquiryForm from "./InquiryForm";
 import Intro from "./Intro";
 import Tab from "./Tab";
 
@@ -27,6 +28,8 @@ export default function ContentList() {
               <Tab />
             ) : item.type === "intro" ? (
               <Intro />
+            ) : item.type === "form" ? (
+              <InquiryForm />
             ) : (
               <div>데이터 호출 실패</div>
             )}

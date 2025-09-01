@@ -4,8 +4,8 @@
 import { useEffect, useState } from "react";
 
 // component
-import IconClose from "@/components/Icon/IconClose";
-import IconMenu from "@/components/Icon/IconMenu";
+import IconCloseCircle from "@/components/icon/IconCloseCircle";
+import IconMenu from "@/components/icon/IconMenu";
 import Link from "next/link";
 
 // interface type
@@ -97,7 +97,7 @@ export default function Nav(props: HeaderProps) {
           </ul>
 
           <button className={style.navCloseBtn} type="button">
-            <IconClose color={props.isActive ? "#000000" : "#ffffff"} />
+            <IconCloseCircle color={props.isActive ? "#000000" : "#ffffff"} />
           </button>
         </div>
       )}

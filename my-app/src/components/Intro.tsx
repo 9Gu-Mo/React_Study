@@ -4,7 +4,7 @@
 import Link from "next/link";
 
 // style
-import style from "@/styles/components/intro.module.scss";
+import style from "@/styles/components/Intro.module.scss";
 
 // interface
 interface Attach {

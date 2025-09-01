@@ -30,3 +30,36 @@
   height: 400px;
   border: 1px solid color(black);
 }
+
+.inp {
+  &-label {
+    display: block;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+
+  &-inner {
+    position: relative;
+    display: inline-block;
+
+    input {
+      border: 1px solid color(black);
+      border-radius: 4px;
+      padding: 5px 20px 5px 5px;
+      background-color: color(white);
+    }
+  }
+
+  &-clear {
+    @include position(50%, auto) {
+      right: 5px;
+    }
+
+    transform: translateY(-50%);
+    font-size: 0;
+  }
+
+  & + .inp {
+    margin-top: 20px;
+  }
+}
