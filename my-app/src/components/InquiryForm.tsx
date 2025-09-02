@@ -42,6 +42,7 @@ export default function InquiryForm() {
       }
     );
     setFormData({ title: "", content: "", userName: "" });
+    alert("데이터 전송 완료");
   };
 
   return (
