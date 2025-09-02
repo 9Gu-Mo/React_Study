@@ -39,6 +39,10 @@ export interface FormProps {
   class?: string;
   children?: ReactNode;
   onChange?: React.ChangeEvent<HTMLInputElement>;
+  onSubmit?: React.FormEventHandler<HTMLFormElement>;
   required?: boolean;
   ref?: HTMLInputElement;
+  count?: number;
+  min?: number;
+  max?: number;
 }

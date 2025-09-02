@@ -4,3 +4,15 @@
   color: color(red-900);
   margin-left: 5px;
 }
+
+.textarea {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.count {
+  @include position {
+    right: 5px;
+    bottom: 5px;
+  }
+}

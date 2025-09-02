@@ -44,9 +44,26 @@
 
     input {
       border: 1px solid color(black);
-      border-radius: 4px;
-      padding: 5px 20px 5px 5px;
       background-color: color(white);
+      border-radius: 4px;
+
+      &::placeholder {
+        color: color(gray-500);
+        font-size: 1.2rem;
+      }
+    }
+
+    input {
+      padding: 5px 20px 5px 5px;
+    }
+
+    textarea {
+      padding: 5px;
+
+      &::placeholder {
+        color: color(gray-500);
+        font-size: 1.2rem;
+      }
     }
   }
 
