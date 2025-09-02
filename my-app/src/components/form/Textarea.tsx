@@ -1,7 +1,6 @@
 "use client";
 
 // hook
-import { useState } from "react";
 
 // component
 
@@ -12,13 +11,13 @@ import { FormProps } from "@/types/common.types";
 import style from "@/styles/components/form/Form.module.scss";
 
 export default function Textarea(props: FormProps) {
-  const [text, setText] = useState<string>("");
+  // const [text, setText] = useState<string>("");
 
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const target = e.target;
+  // const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  //   const target = e.target;
 
-    setText(target.value);
-  };
+  //   setText(target.value);
+  // };
 
   return (
     <>
@@ -35,8 +34,9 @@ export default function Textarea(props: FormProps) {
             required={props.required}
             minLength={props.min}
             maxLength={props.max}
-            value={text}
-            onChange={onChange}
+            // value={text}
+            value={props.value}
+            onChange={props.onChange}
           ></textarea>
           <div className={style.count}>
             <span>{props.count}</span>

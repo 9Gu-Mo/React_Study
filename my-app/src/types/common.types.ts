@@ -38,7 +38,9 @@ export interface FormProps {
   clear?: boolean;
   class?: string;
   children?: ReactNode;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
   required?: boolean;
   ref?: HTMLInputElement;

@@ -26,11 +26,11 @@ export default function Input(props: FormProps) {
   };
 
   // 사용자 입력 값 value에 저장
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const target = e.target;
+  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const target = e.target;
 
-    setText(target.value);
-  };
+  //   setText(target.value);
+  // };
 
   // 비밀번호 암호화 노출, 비노출
   const onPwToggle = () => {
@@ -61,8 +61,10 @@ export default function Input(props: FormProps) {
               placeholder={props.placeholder}
               disabled={props.disabled}
               required={props.required}
-              value={text}
-              onChange={onChange}
+              // value={text}
+              value={props.value}
+              // onChange={onChange}
+              onChange={props.onChange}
               ref={inpRef}
             />
             {/* input에 입력받은 value값 체크 & clear props가 있을 경우 초기화 버튼 노출 */}
