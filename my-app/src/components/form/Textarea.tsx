@@ -1,9 +1,5 @@
 "use client";
 
-// hook
-
-// component
-
 // interface type
 import { FormProps } from "@/types/common.types";
 
@@ -11,14 +7,6 @@ import { FormProps } from "@/types/common.types";
 import style from "@/styles/components/form/Form.module.scss";
 
 export default function Textarea(props: FormProps) {
-  // const [text, setText] = useState<string>("");
-
-  // const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  //   const target = e.target;
-
-  //   setText(target.value);
-  // };
-
   return (
     <>
       <div className={`inp ${props.class}`}>
@@ -34,7 +22,6 @@ export default function Textarea(props: FormProps) {
             required={props.required}
             minLength={props.min}
             maxLength={props.max}
-            // value={text}
             value={props.value}
             onChange={props.onChange}
           ></textarea>

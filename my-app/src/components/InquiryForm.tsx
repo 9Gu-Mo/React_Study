@@ -74,7 +74,7 @@ export default function InquiryForm() {
         placeholder="내용내용내용"
         label="content"
         name="content"
-        count={0}
+        count={formData.content.length}
         min={10}
         max={1000}
         required
