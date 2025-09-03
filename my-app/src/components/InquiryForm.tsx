@@ -7,11 +7,13 @@ import { useState } from "react";
 import Form from "./form/Form";
 import Input from "./form/Input";
 import Textarea from "./form/Textarea";
+import Inquiry from "./Inquiry";
 
 interface Post {
   title: string;
   userName: string;
   content: string;
+  date?: string;
 }
 
 export default function InquiryForm() {
@@ -31,6 +33,12 @@ export default function InquiryForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const now = new Date();
+    const payload: Post = {
+      ...formData,
+      date: now.toISOString(),
+    };
+
     await fetch(
       "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard",
       {
@@ -38,7 +46,7 @@ export default function InquiryForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       }
     );
     setFormData({ title: "", content: "", userName: "" });
@@ -46,43 +54,46 @@ export default function InquiryForm() {
   };
 
   return (
-    <Form id="form" onSubmit={handleSubmit}>
-      <Input
-        id="userName"
-        type="text"
-        placeholder="name"
-        name="userName"
-        label="user name"
-        clear
-        required
-        value={formData.userName}
-        onChange={handleChange}
-      />
-      <Input
-        id="title"
-        type="text"
-        placeholder="title"
-        name="title"
-        label="title"
-        clear
-        required
-        value={formData.title}
-        onChange={handleChange}
-      />
-      <Textarea
-        id="content"
-        placeholder="내용내용내용"
-        label="content"
-        name="content"
-        count={formData.content.length}
-        min={10}
-        max={1000}
-        required
-        value={formData.content}
-        onChange={handleChange}
-      />
-      <button type="submit">작성 완료</button>
-      {/* <div>
+    <>
+      <div className="form">
+        {/* 입력 컴포넌트 */}
+        <Form id="form" onSubmit={handleSubmit}>
+          <Input
+            id="userName"
+            type="text"
+            placeholder="name"
+            name="userName"
+            label="user name"
+            clear
+            required
+            value={formData.userName}
+            onChange={handleChange}
+          />
+          <Input
+            id="title"
+            type="text"
+            placeholder="title"
+            name="title"
+            label="title"
+            clear
+            required
+            value={formData.title}
+            onChange={handleChange}
+          />
+          <Textarea
+            id="content"
+            placeholder="내용내용내용"
+            label="content"
+            name="content"
+            count={formData.content.length}
+            min={10}
+            max={1000}
+            required
+            value={formData.content}
+            onChange={handleChange}
+          />
+          <button type="submit">작성 완료</button>
+          {/* <div>
         <Input
           id="pw"
           type="password"
@@ -93,6 +104,11 @@ export default function InquiryForm() {
         />
         <button type="submit">입력 데이터 저장</button>
       </div> */}
-    </Form>
+        </Form>
+
+        {/* 출력 컴포넌트 */}
+        <Inquiry />
+      </div>
+    </>
   );
 }
