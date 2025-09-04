@@ -14,6 +14,7 @@ interface Post {
   userName: string;
   content: string;
   date?: string;
+  alias?: string;
 }
 
 export default function InquiryForm() {
@@ -21,6 +22,7 @@ export default function InquiryForm() {
     title: "",
     userName: "",
     content: "",
+    alias: "",
   });
 
   const handleChange = (
@@ -49,7 +51,7 @@ export default function InquiryForm() {
         body: JSON.stringify(payload),
       }
     );
-    setFormData({ title: "", content: "", userName: "" });
+    setFormData({ title: "", content: "", userName: "", alias: "" });
     alert("데이터 전송 완료");
   };
 
@@ -80,6 +82,17 @@ export default function InquiryForm() {
             value={formData.title}
             onChange={handleChange}
           />
+          <Input
+            id="alias"
+            type="text"
+            placeholder="alias"
+            name="alias"
+            label="alias"
+            clear
+            value={formData.alias}
+            onChange={handleChange}
+          />
+          <button type="button">주소 검색</button>
           <Textarea
             id="content"
             placeholder="내용내용내용"

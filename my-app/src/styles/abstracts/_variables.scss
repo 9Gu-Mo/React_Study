@@ -1,5 +1,8 @@
 // color set
 // 실제 사용은 하단의 color map
+// black color
+$black: #000000;
+
 // blue color
 $blue-900: #1d2d49;
 $blue-800: #25385b;
@@ -39,6 +42,7 @@ $gray-0: #fff;
 
 // color map
 $color-set: (
+  black: $black,
   main: $blue-500,
   sub: $red-500,
   red: $red-500,
