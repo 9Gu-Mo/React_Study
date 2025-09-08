@@ -48,22 +48,52 @@ export default function Inquiry() {
     fetchNotice();
   }, []);
 
+  // list 제거 함수
+  const onClickDelete = async (id: string) => {
+    try {
+      const res = await fetch(
+        `https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard/${id}`,
+        { method: "DELETE" }
+      );
+
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+      setNotice((prev) => prev.filter((item) => item.id !== id));
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("오류 발생");
+      }
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>에러 발생 : {error}</p>;
 
   return (
     <>
-      {notice.length > 0 && (
+      {notice.length > 0 ? (
         <ul>
           {notice.map((item, index) => (
-            <li key={item.id}>
+            <li id={item.id} key={item.id}>
               <span>{index + 1}</span>
               <span>{item.userName}</span>
               <Link href={""}>{item.title}</Link>
               <span>{item.date}</span>
+              <button
+                type="button"
+                onClick={() => {
+                  onClickDelete(item.id);
+                }}
+              >
+                x
+              </button>
             </li>
           ))}
         </ul>
+      ) : (
+        <div>등록된 데이터 없음</div>
       )}
     </>
   );

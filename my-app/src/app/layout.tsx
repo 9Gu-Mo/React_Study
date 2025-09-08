@@ -10,8 +10,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  viewportFit: "cover",
+  width: "device-width",
 };
 
 export default function RootLayout({
