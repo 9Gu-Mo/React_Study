@@ -24,28 +24,48 @@ export default function Inquiry() {
 
   // api 호출
   useEffect(() => {
-    const fetchNotice = async () => {
+    const controller = new AbortController();
+
+    (async () => {
       try {
         const res = await fetch(
-          "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard"
+          "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard",
+          { signal: controller.signal }
         );
-
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
+        if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
         const data = await res.json();
         setNotice(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("예상치 못한 에러 발생 ㅎㅎ");
+      } catch (e: unknown) {
+        if (e !== "AbortError") {
+          setError("데이터 불러오기 실패");
         }
       } finally {
         setLoading(false);
       }
-    };
+    })();
 
-    fetchNotice();
+    // const fetchNotice = async () => {
+    //   try {
+    //     const res = await fetch(
+    //       "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard"
+    //     );
+
+    //     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+    //     const data = await res.json();
+    //     setNotice(data);
+    //   } catch (err: unknown) {
+    //     if (err instanceof Error) {
+    //       setError(err.message);
+    //     } else {
+    //       setError("예상치 못한 에러 발생 ㅎㅎ");
+    //     }
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+
+    // fetchNotice();
   }, []);
 
   // list 제거 함수
