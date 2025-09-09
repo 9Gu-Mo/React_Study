@@ -1,6 +1,6 @@
 // component
 import Content from "@/components/Content";
-import ContentProvider from "@/components/ContentProvider";
+import ContentProvider from "@/provider/ContentProvider";
 
 // api
 import { INFO } from "@/api/endpoints";

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 
 import "@/styles/main.scss";
 import "@/styles/styles.scss";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,13 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
-        <Script
-          src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=19371b70b65b8c001818d1dd5184e68a&autoload=false`}
-          strategy="beforeInteractive"
-        />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
