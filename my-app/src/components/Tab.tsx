@@ -81,7 +81,7 @@ export default function Tab() {
         // 호출 성공
         const res = await fetch(INFO.CUSTOMER);
 
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        // if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
         const data = await res.json();
         setCustomer(data);

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 // api
-import { CRUD } from "@/api/endpoints";
+import { NoticeAPI } from "@/api/noticeApi";
 
 // interface type
 interface List {
@@ -29,41 +29,83 @@ export default function Inquiry() {
 
   // api 호출
   useEffect(() => {
-    const controller = new AbortController();
+    // const controller = new AbortController();
 
-    (async () => {
+    // (async () => {
+    //   try {
+    //     const res = await fetch(CRUD.NOTICE, { signal: controller.signal });
+    //     // if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
+    //     const data = await res.json();
+    //     setNotice(data);
+    //   } catch (e: unknown) {
+    //     if (e !== "AbortError") {
+    //       setError("데이터 불러오기 실패");
+    //     }
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // })();
+
+    // return () => controller.abort();
+
+    const fetchInput = async () => {
+      // try {
+      //   const res = await fetch(CRUD.NOTICE);
+
+      //   const data = await res.json();
+      //   setNotice(data);
+      // } catch (err: unknown) {
+      //   if (err instanceof Error) {
+      //     setError(err.message);
+      //   } else {
+      //     setError("에러 발생");
+      //   }
+      // } finally {
+      //   setLoading(false);
+      // }
       try {
-        const res = await fetch(CRUD.NOTICE, { signal: controller.signal });
-        if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
-        const data = await res.json();
+        const data = await NoticeAPI.getAll();
         setNotice(data);
-      } catch (e: unknown) {
-        if (e !== "AbortError") {
-          setError("데이터 불러오기 실패");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("에러 발생");
         }
       } finally {
         setLoading(false);
       }
-    })();
+    };
 
-    return () => controller.abort();
+    fetchInput();
   }, []);
 
   // list 제거 함수
   const onClickDelete = async (id: string) => {
+    // try {
+    //   if (window.confirm("삭제 하시겠습니까?")) {
+    //     await fetch(`${CRUD.NOTICE}/${id}`, { method: "DELETE" });
+    //     setNotice((prev) => prev.filter((item) => item.id !== id));
+    //   } else {
+    //     console.log("삭제 취소");
+    //   }
+    // } catch (err: unknown) {
+    //   if (err instanceof Error) {
+    //     setError(err.message);
+    //   } else {
+    //     setError("오류 발생");
+    //   }
+    // }
     try {
       if (window.confirm("삭제 하시겠습니까?")) {
-        await fetch(`${CRUD.NOTICE}/${id}`, { method: "DELETE" });
-        setNotice((prev) => prev.filter((item) => item.id !== id));
+        await NoticeAPI.delete(id);
+        setNotice((prev) => prev.filter((n) => n.id !== id));
+        alert("삭제 완료");
       } else {
-        console.log("삭제 취소");
+        alert("삭제 취소");
       }
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("오류 발생");
-      }
+    } catch (err) {
+      console.error("삭제 실패 : ", err);
     }
   };
 

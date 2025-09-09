@@ -9,6 +9,10 @@ import Input from "./form/Input";
 import Textarea from "./form/Textarea";
 import Inquiry from "./Inquiry";
 
+// api
+import { CRUD } from "@/api/endpoints";
+
+// interface
 interface Post {
   title: string;
   userName: string;
@@ -41,16 +45,13 @@ export default function InquiryForm() {
       date: now.toISOString(),
     };
 
-    await fetch(
-      "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
+    await fetch(CRUD.NOTICE, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
     setFormData({ title: "", content: "", userName: "", alias: "" });
     alert("데이터 전송 완료");
   };
@@ -99,7 +100,7 @@ export default function InquiryForm() {
             label="content"
             name="content"
             count={formData.content.length}
-            min={10}
+            min={1}
             max={1000}
             required
             value={formData.content}

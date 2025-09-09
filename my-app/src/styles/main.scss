@@ -85,10 +85,10 @@
   button {
     @include flex($align: center, $justify: center);
 
-    background-color: color(black);
-    color: color(white);
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
+    // background-color: color(black);
+    // color: color(white);
+    // width: 100%;
+    // padding: 5px;
+    // box-sizing: border-box;
   }
 }

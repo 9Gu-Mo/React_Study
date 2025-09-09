@@ -15,22 +15,21 @@ import IconEye from "../icon/IconEye";
 import IconEyeClose from "../icon/IconEyeClose";
 
 export default function Input(props: FormProps) {
-  const [text, setText] = useState<string>("");
   const [isVisible, setIsVisible] = useState(false);
 
   const inpRef = useRef<HTMLInputElement>(null);
 
   // input 입력 데이터 초기화
   const onClear = () => {
-    setText("");
+    if (props.onChange) {
+      props.onChange({
+        target: {
+          name: props.name,
+          value: "",
+        },
+      } as React.ChangeEvent<HTMLInputElement>);
+    }
   };
-
-  // 사용자 입력 값 value에 저장
-  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const target = e.target;
-
-  //   setText(target.value);
-  // };
 
   // 비밀번호 암호화 노출, 비노출
   const onPwToggle = () => {
@@ -61,14 +60,12 @@ export default function Input(props: FormProps) {
               placeholder={props.placeholder}
               disabled={props.disabled}
               required={props.required}
-              // value={text}
               value={props.value}
-              // onChange={onChange}
               onChange={props.onChange}
               ref={inpRef}
             />
             {/* input에 입력받은 value값 체크 & clear props가 있을 경우 초기화 버튼 노출 */}
-            {text.length > 0 && props.clear ? (
+            {props.value && props.clear ? (
               <button type="button" className="inp-clear" onClick={onClear}>
                 <IconClose size={16} />
               </button>
