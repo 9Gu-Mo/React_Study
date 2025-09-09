@@ -1,8 +1,13 @@
 "use client";
 
+// component
 import Link from "next/link";
+
 // hook
 import { useEffect, useState } from "react";
+
+// api
+import { CRUD } from "@/api/endpoints";
 
 // interface type
 interface List {
@@ -28,10 +33,7 @@ export default function Inquiry() {
 
     (async () => {
       try {
-        const res = await fetch(
-          "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard",
-          { signal: controller.signal }
-        );
+        const res = await fetch(CRUD.NOTICE, { signal: controller.signal });
         if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
         const data = await res.json();
         setNotice(data);
@@ -44,41 +46,18 @@ export default function Inquiry() {
       }
     })();
 
-    // const fetchNotice = async () => {
-    //   try {
-    //     const res = await fetch(
-    //       "https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard"
-    //     );
-
-    //     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-    //     const data = await res.json();
-    //     setNotice(data);
-    //   } catch (err: unknown) {
-    //     if (err instanceof Error) {
-    //       setError(err.message);
-    //     } else {
-    //       setError("예상치 못한 에러 발생 ㅎㅎ");
-    //     }
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-
-    // fetchNotice();
+    return () => controller.abort();
   }, []);
 
   // list 제거 함수
   const onClickDelete = async (id: string) => {
     try {
-      const res = await fetch(
-        `https://68b62cb1e5dc090291b1085c.mockapi.io/api/testv2/NoticeBoard/${id}`,
-        { method: "DELETE" }
-      );
-
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-      setNotice((prev) => prev.filter((item) => item.id !== id));
+      if (window.confirm("삭제 하시겠습니까?")) {
+        await fetch(`${CRUD.NOTICE}/${id}`, { method: "DELETE" });
+        setNotice((prev) => prev.filter((item) => item.id !== id));
+      } else {
+        console.log("삭제 취소");
+      }
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

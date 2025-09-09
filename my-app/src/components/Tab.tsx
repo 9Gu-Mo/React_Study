@@ -7,6 +7,9 @@ import Link from "next/link";
 // hook
 import { useEffect, useState } from "react";
 
+// api
+import { INFO } from "@/api/endpoints";
+
 // style
 import style from "@/styles/components/Tab.module.scss";
 
@@ -76,9 +79,7 @@ export default function Tab() {
     const fetchCustomer = async () => {
       try {
         // 호출 성공
-        const res = await fetch(
-          "https://68a51b842a3deed2960c6b0a.mockapi.io/api/testv1/Customer"
-        );
+        const res = await fetch(INFO.CUSTOMER);
 
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
