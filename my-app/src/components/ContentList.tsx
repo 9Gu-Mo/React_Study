@@ -1,19 +1,17 @@
 "use client";
 
-// hook
-import { useContent } from "@/contexts/ContentContext";
-
 // component
+import { useContentPost } from "@/atoms/contentPosts";
 import InquiryForm from "./InquiryForm";
 import Intro from "./Intro";
 import Tab from "./Tab";
 
 export default function ContentList() {
-  const content = useContent() || [];
+  const posts = useContentPost();
 
   return (
     <>
-      {content.map((item) => {
+      {posts.map((item) => {
         return (
           <div
             key={item.id}

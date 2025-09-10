@@ -15,14 +15,15 @@ import { HeaderProps } from "@/types/common.types";
 import AOS from "aos";
 
 // style
-import { useContent } from "@/contexts/ContentContext";
+import { useContentPost } from "@/atoms/contentPosts";
 import style from "@/styles/components/layout/Nav.module.scss";
 import "aos/dist/aos.css";
 
 export default function Nav(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const content = useContent() || [];
+
+  const posts = useContentPost();
 
   // page refresh scroll top
   useEffect(() => {
@@ -83,7 +84,7 @@ export default function Nav(props: HeaderProps) {
           onClick={handleListClick}
         >
           <ul>
-            {content.map((item, index) => (
+            {posts.map((item, index) => (
               <li
                 key={index}
                 data-aos={item.aosDataName ? item.aosDataName : "fade-right"}
