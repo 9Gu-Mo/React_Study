@@ -14,8 +14,10 @@ import { HeaderProps } from "@/types/common.types";
 // library
 import AOS from "aos";
 
+// zustand
+import { usePostStore } from "@/stores/usePostStore";
+
 // style
-import { useContentPost } from "@/atoms/contentPosts";
 import style from "@/styles/components/layout/Nav.module.scss";
 import "aos/dist/aos.css";
 
@@ -23,7 +25,15 @@ export default function Nav(props: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const posts = useContentPost();
+  // const posts = useContentPost();
+  const { posts, fetchPosts } = usePostStore();
+
+  // api 호출
+  useEffect(() => {
+    if (posts.length === 0) {
+      fetchPosts();
+    }
+  }, [posts, fetchPosts]);
 
   // page refresh scroll top
   useEffect(() => {
