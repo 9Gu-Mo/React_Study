@@ -4,19 +4,12 @@
 import { usePostStore } from "@/stores/usePostStore";
 
 // component
-import { useEffect } from "react";
 import InquiryForm from "./InquiryForm";
 import Intro from "./Intro";
 import Tab from "./Tab";
 
 export default function ContentList() {
-  const { posts, fetchPosts } = usePostStore();
-
-  useEffect(() => {
-    if (posts.length === 0) {
-      fetchPosts();
-    }
-  }, [posts, fetchPosts]);
+  const { posts } = usePostStore();
 
   return (
     <>

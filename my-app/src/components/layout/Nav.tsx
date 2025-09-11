@@ -30,15 +30,12 @@ export default function Nav(props: HeaderProps) {
 
   // api 호출
   useEffect(() => {
-    if (posts.length === 0) {
-      fetchPosts();
-    }
-  }, [posts, fetchPosts]);
+    fetchPosts();
+  }, [fetchPosts]);
 
   // page refresh scroll top
   useEffect(() => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
+    if ((history.scrollRestoration = "manual")) {
       window.history.replaceState(null, "", window.location.pathname);
     }
   }, []);
